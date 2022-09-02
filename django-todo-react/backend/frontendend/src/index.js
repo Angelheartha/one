@@ -1,10 +1,10 @@
 import React from 'react';
 //import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
-import './bootstrap/dist/css/bootstrap.css';
-import './index.css';
-import App  from './App';
-import reportWebVitals from './reportWebVitals';
+//import 'bootstrap/dist/css/bootstrap.css';
+//import './components/index.css';
+import App  from './components/App';
+import reportWebVitals from './components/reportWebVitals';
 import { render } from 'react-dom'
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
