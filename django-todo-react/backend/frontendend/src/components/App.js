@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import { BrowserRouter, Router, Route, Routes, Link} from "react-router-dom";
+import { BrowserRouter, Router, Route, Routes, Link, useLocation} from "react-router-dom";
 import Login from "./login";
 import Signup from "./signup";
 import Hello from "./hello";
@@ -26,10 +26,13 @@ const App = () => {
   const [input, setInput]=useState("");
   const [textarea, setTextarea]=useState("");
 
+  const location = useLocation();
 
   useEffect(() =>{
   refreshList();
   },[])
+
+
 
 
 
@@ -137,6 +140,7 @@ const Act = (props) => {
 
   const renderTabList = (props) => {
     return (
+
       <div className="nav nav-tabs">
         <span
           onClick={() => displayCompleted(true)}
@@ -229,29 +233,28 @@ const Act = (props) => {
 
         return (
 
-
         <main className="container">
       <div className="nav-container">
+
              <div className="site">
                 <nav>
-                  <BrowserRouter>
+
                     <Link className={"nav-link"} to={"/"}>Home</Link>
                     <Link className={"nav-link"} to={"/login/"}>Login</Link>
                     <Link className={"nav-link"} to={"/signup/"}>Signup</Link>
                     <Link className={"nav-link"} to={"/hello/"}>Hello</Link>
-                  </BrowserRouter>
-                    <button onClick={handleLogout}>Logout</button>
+                    <button className={"nav-bot"} onClick={handleLogout}>Logout</button>
                 </nav>
-                <div>
-                    <h1>Ahhh after 10,000 years I'm free. Time to conquer the Earth!</h1>
-                  <BrowserRouter>
-                    <Routes>
+                <div className="golinks">
+                    <h1 className="message">You are always welcome!</h1>
+
+                     <Routes>
                         <Route exact path={"/login/"} element={<Login />}/>
                         <Route exact path={"/signup/"} element={<Signup />}/>
                         <Route exact path={"/hello/"} element={<Hello />}/>
                         <Route path={"/"} render={() => <div>Home again</div>} />
-                    </Routes>
-                  </BrowserRouter>
+                     </Routes>
+
                 </div>
             </div>
 
