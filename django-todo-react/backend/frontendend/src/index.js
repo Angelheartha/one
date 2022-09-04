@@ -9,10 +9,10 @@ import { render } from 'react-dom'
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 
+//const root = createRoot(container);
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
 
-const rootElement = document.getElementById("root");
-const container = document.getElementById('root');
-const root = createRoot(container);
 const options = {
   // you can also just use 'bottom center'
   position: positions.BOTTOM_CENTER,
@@ -22,10 +22,8 @@ const options = {
   transition: transitions.SCALE
 }
 
-const Root = () => (
-  <AlertProvider template={AlertTemplate} {...options}>
+root.render(
+<AlertProvider template={AlertTemplate} {...options}>
     <App />
   </AlertProvider>
-)
-
-render(<Root />, document.getElementById('root'))
+);
