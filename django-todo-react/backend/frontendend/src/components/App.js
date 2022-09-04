@@ -234,10 +234,12 @@ const Act = (props) => {
       <div className="nav-container">
              <div className="site">
                 <nav>
+                  <BrowserRouter>
                     <Link className={"nav-link"} to={"/"}>Home</Link>
                     <Link className={"nav-link"} to={"/login/"}>Login</Link>
                     <Link className={"nav-link"} to={"/signup/"}>Signup</Link>
                     <Link className={"nav-link"} to={"/hello/"}>Hello</Link>
+                  </BrowserRouter>
                     <button onClick={handleLogout}>Logout</button>
                 </nav>
                 <div>
