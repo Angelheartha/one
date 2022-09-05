@@ -4,16 +4,88 @@
     color:white;
 }
 
+
 .nav-link{
     color:white;
     decoration:none;
     border: 1px solid white;
-    padding: 1em;
+    padding: 5px;
+}
+
+.bottons{
+  text-align:center;
+}
+
+.golinks{
+  text-align:center;
 }
 
 .golinks .message{
-   font-size:10px;
+   font-size:20px;
+   margin-top:20px;
+   text-align:center;
+}
+
+.label, .label input[type=text]{
+width:220px;
+margin:0 auto;
+display:block;
 }
 
 
 
+.form{
+text-align:center;
+}
+
+
+.navi{
+text-align:center;
+margin:0 auto;
+}
+
+.button3{
+margin:0 auto;
+text-align:center;
+}
+
+.text-uppercase{
+margin:0 auto;
+text-align:center;
+}
+
+#overlay{
+margin:0 auto;
+text-align:center;
+}
+
+.list-group{
+margin:0 auto;
+text-align:center;
+list-style:none;
+padding:10px;
+
+}
+
+.nav{
+margin:0 auto;
+text-align:center;
+}
+
+
+
+
+
+
+
+.app {
+  padding: 30px;
+  background-color: floralwhite;
+}
+
+.todo {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+}

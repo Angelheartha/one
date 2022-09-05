@@ -40,20 +40,20 @@ class Signup extends Component{
         return (
             <div>
                 Signup
-                <form onSubmit={this.handleSubmit}>
+                <form className="form" onSubmit={this.handleSubmit}>
                     <label>
                         Username:
-                        <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
+                        <input className="label" name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
                         { this.state.errors.username ? this.state.errors.username : null}
                     </label>
                     <label>
                         Email:
-                        <input name="email" type="email"  value={this.state.email} onChange={this.handleChange}/>
+                        <input className="label" name="email" type="email"  value={this.state.email} onChange={this.handleChange}/>
                         { this.state.errors.email ? this.state.errors.email : null}
                     </label>
                     <label>
                         Password:
-                        <input name="password" type="password"  value={this.state.password} onChange={this.handleChange}/>
+                        <input className="label" name="password" type="password"  value={this.state.password} onChange={this.handleChange}/>
                         { this.state.errors.password ? this.state.errors.password : null}
                     </label>
                     <input type="submit" value="Submit"/>

@@ -5,7 +5,6 @@ import Signup from "./signup";
 import Hello from "./hello";
 import { useState,useEffect} from "react";
 import axiosInstance from "../axiosApi";
-
 import Modal from "./Modal";
 import axios from "axios";
 import { useAlert } from 'react-alert'
@@ -236,16 +235,15 @@ const Act = (props) => {
         <main className="container">
       <div className="nav-container">
 
-             <div className="site">
-                <nav>
-
+            <div className="site">
+                 <nav className="bottons">
                     <Link className={"nav-link"} to={"/"}>Home</Link>
                     <Link className={"nav-link"} to={"/login/"}>Login</Link>
                     <Link className={"nav-link"} to={"/signup/"}>Signup</Link>
                     <Link className={"nav-link"} to={"/hello/"}>Hello</Link>
                     <button className={"nav-bot"} onClick={handleLogout}>Logout</button>
-                </nav>
-                <div className="golinks">
+                 </nav>
+                 <div className="golinks">
                     <h1 className="message">You are always welcome!</h1>
 
                      <Routes>
@@ -255,11 +253,11 @@ const Act = (props) => {
                         <Route path={"/"} render={() => <div>Home again</div>} />
                      </Routes>
 
-                </div>
+                 </div>
             </div>
 
 
-
+<div className="button3">
         <button
           className="navi white How btn btn-primary"
           onClick={howtodo}
@@ -281,7 +279,7 @@ const Act = (props) => {
         >
           Contact
         </button>
-      </div>
+</div>
 
       {isModalOpen && <Act onClick={() => { closeModal() }} />}
       <p className="howtitle">{description}</p>
@@ -303,6 +301,7 @@ const Act = (props) => {
             </ul>
           </div>
         </div>
+      </div>
       </div>
       {modal && (
         <Modal
