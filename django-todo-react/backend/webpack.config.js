@@ -1,8 +1,8 @@
 const path = require('path');
-
+webpack = require('webpack');
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: ['babel-polyfill', path.resolve(__dirname, 'frontendend/src/index.js')],
 
     output: {
@@ -20,14 +20,13 @@ module.exports = {
         rules: [
             {
                 // regex test for js and jsx files
-                test: /\.(js|jsx)?$/,
+                //test: /\.css$/,
+                test: /\.txt$/,
                 // don't look in the node_modules/ folder
                 exclude: /node_modules/,
                 // for matching files, use the babel-loader
-                use: {
-                    loader: "babel-loader",
-                    options: {presets: ["@babel/env"]}
-                },
+                //use: ['style-loader','css-loader']
+                use: 'raw-loader'
             }
         ],
 
