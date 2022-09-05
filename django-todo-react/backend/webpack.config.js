@@ -1,5 +1,5 @@
 const path = require('path');
-webpack = require('webpack');
+
 
 module.exports = {
     mode: "production",
@@ -20,13 +20,16 @@ module.exports = {
         rules: [
             {
                 // regex test for js and jsx files
-                //test: /\.css$/,
-                test: /\.txt$/,
+                test: /\.js$/,
                 // don't look in the node_modules/ folder
                 exclude: /node_modules/,
                 // for matching files, use the babel-loader
-                //use: ['style-loader','css-loader']
-                use: 'raw-loader'
+                use: ['style-loader','css-loader'],
+                use: 'raw-loader',
+                use: {
+                    loader: "babel-loader",
+                    options: {presets: ["@babel/env"]}
+                },
             }
         ],
 

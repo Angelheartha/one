@@ -9,8 +9,8 @@ import { render } from 'react-dom'
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import { BrowserRouter, Router, Route, Routes, Link} from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap';
+//import 'bootstrap/dist/css/bootstrap.css';
+//import 'bootstrap';
 
 
 //const root = createRoot(container);
