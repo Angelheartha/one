@@ -128,5 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-
-'node_modules'
+  # Ignore node_modules
+/node_modules/
