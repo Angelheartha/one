@@ -143,13 +143,13 @@ const Act = (props) => {
       <div className="nav nav-tabs">
         <span
           onClick={() => displayCompleted(true)}
-          className={viewCompleted ? "nav-link active" : "nav-link"}
+          className={viewCompleted ? "btn btn-danger active" : "btn btn-light"}
         >
           Complete
         </span>
         <span
           onClick={() => displayCompleted(false) }
-          className={viewCompleted ? "nav-link" : "nav-link active"}
+          className={viewCompleted ? "btn btn-light" : "btn btn-danger active"}
         >
           Incomplete
         </span>
@@ -165,9 +165,9 @@ const Act = (props) => {
      );
 
      return newItems.map((item, props) => (
-       <li
+       <li className="list-group-item d-flex justify-content-between align-items-center"
          key={item.id}
-         className="list-group-item d-flex justify-content-between align-items-center"
+
        >
          <span
            className={`todo-title mr-2 ${viewCompleted ? "completed-todo" : ""
@@ -236,11 +236,11 @@ const Act = (props) => {
       <div className="nav-container">
 
             <div className="site">
-                 <nav className="bottons">
-                    <Link className={"nav-link"} to={"/"}>Home</Link>
-                    <Link className={"nav-link"} to={"/login/"}>Login</Link>
-                    <Link className={"nav-link"} to={"/signup/"}>Signup</Link>
-                    <Link className={"nav-link"} to={"/hello/"}>Hello</Link>
+                 <nav className="bottonss">
+                    <Link className={"nav-linkk"} to={"/"}>Home</Link>
+                    <Link className={"nav-linkk"} to={"/login/"}>Login</Link>
+                    <Link className={"nav-linkk"} to={"/signup/"}>Signup</Link>
+                    <Link className={"nav-linkk"} to={"/hello/"}>Hello</Link>
                     <button className={"nav-bot"} onClick={handleLogout}>Logout</button>
                  </nav>
                  <div className="golinks">
@@ -283,7 +283,7 @@ const Act = (props) => {
 
       {isModalOpen && <Act onClick={() => { closeModal() }} />}
       <p className="howtitle">{description}</p>
-      <h1 className="text-uppercase text-center my-4">Todo app</h1>
+      <h1 className="text-uppercase text-center my-4">Memo</h1>
       <div className="row">
         <div className="col-md-6 col-sm-10 mx-auto p-0">
           <div className="card p-3">

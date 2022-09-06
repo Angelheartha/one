@@ -5,15 +5,19 @@
 }
 
 
-.nav-link{
+.nav-linkk{
     color:white;
     decoration:none;
     border: 1px solid white;
     padding: 5px;
+    width:70px;
+
 }
 
-.bottons{
-  text-align:center;
+.bottonss{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
 }
 
 .golinks{
@@ -22,31 +26,41 @@
 
 .golinks .message{
    font-size:20px;
-   margin-top:20px;
+   margin-op:20px;
    text-align:center;
 }
 
 .label, .label input[type=text]{
-width:220px;
+width:200px;
 margin:0 auto;
 display:block;
 }
 
 
+.form input[type=submit]{
+width:70px;
+margin:0 auto;
+}
+
 
 .form{
-text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
+
+
 
 
 .navi{
 text-align:center;
-margin:0 auto;
+margin:0;
 }
 
 .button3{
-margin:0 auto;
-text-align:center;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
 }
 
 .text-uppercase{
@@ -59,22 +73,20 @@ margin:0 auto;
 text-align:center;
 }
 
+
 .list-group{
 margin:0 auto;
 text-align:center;
 list-style:none;
 padding:10px;
-
+color:black;
+font-weight:600;
 }
 
 .nav{
 margin:0 auto;
 text-align:center;
 }
-
-
-
-
 
 
 
@@ -89,3 +101,6 @@ text-align:center;
   font-size: 18px;
   justify-content: space-between;
 }
+
+
+
