@@ -29,6 +29,7 @@ class CustomUserCreate(generics.CreateAPIView):
 
 class AuthInfoGetView(generics.RetrieveAPIView):
     permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = ()
     queryset = Account.objects.all()
     serializer_class = CustomUserSerializer
 
