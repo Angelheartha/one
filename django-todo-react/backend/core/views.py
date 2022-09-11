@@ -1,27 +1,47 @@
-from rest_framework import status, permissions
+
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import MyTokenObtainPairSerializer, CustomUserSerializer
-
+from django.db import transaction
+from .models import Account, AccountManager
+from rest_framework import authentication, permissions, generics, status, viewsets, filters
+from .serializers import CustomUserSerializer
 
 class ObtainTokenPairWithColorView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
 
-class CustomUserCreate(APIView):
+class CustomUserCreate(generics.CreateAPIView):
     permission_classes = (permissions.AllowAny,)
     authentication_classes = ()
+    serializer_class = CustomUserSerializer
 
+    @transaction.atomic
     def post(self, request, format='json'):
         serializer = CustomUserSerializer(data=request.data)
         if serializer.is_valid():
-            user = serializer.save()
-            if user:
-                json = serializer.data
-                return Response(json, status=status.HTTP_201_CREATED)
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AuthInfoGetView(generics.RetrieveAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    queryset = Account.objects.all()
+    serializer_class = CustomUserSerializer
+
+    def get(self, request, format=None):
+        return Response(data={
+            'id': request.user.id,
+            'username': request.user.username,
+            'email': request.user.email,
+        },
+        status=status.HTTP_200_OK)
+
+
+
 
 class HelloWorldView(APIView):
 

@@ -1,9 +1,12 @@
 from datetime import timedelta
 from pathlib import Path
+
+from django import core
+from django.contrib.auth import get_user_model
 import os
+import core
 
-
-
+core.Account = get_user_model
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,6 +39,7 @@ INSTALLED_APPS = [
     'core',
     'frontendend',
     'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
 
 ]
 
@@ -49,6 +53,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
+
+JWT_AUTH = {
+    'JWT_VERIFY_EXPIRATION':  False,
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+}
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -106,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -139,8 +148,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-    'rest_framework_simplejwt.authentication.JWTAuthentication',
+         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'NON_FIELD_ERROS_KEY': 'detail',
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 }
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
@@ -158,7 +169,7 @@ SIMPLE_JWT = {
 }
 
 
-AUTH_USER_MODEL = "core.CustomUser"
+AUTH_USER_MODEL = "core.Account"
 
 WHITENOISE_AUTOREFRESH = True
 
