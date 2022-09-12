@@ -164,7 +164,12 @@ const Act = (props) => {
        (item) => item.completed === viewCompleted
      );
 
+
+
+
      return newItems.map((item, props) => (
+
+
        <li className="list-group-item d-flex justify-content-between align-items-center"
          key={item.id}
 
@@ -193,6 +198,7 @@ const Act = (props) => {
        </li>
      ));
   };
+
 
   const whattodo = () => {
       setDescription("You can write any recommendations for language studies on the Description. anything is ok");
