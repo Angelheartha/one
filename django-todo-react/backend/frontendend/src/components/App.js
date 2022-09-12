@@ -220,6 +220,10 @@ const Act = (props) => {
   }
 
 
+
+
+
+
     const handleLogout = async () => {
         try {
             const response = await axiosInstance.post('/blacklist/', {
@@ -237,11 +241,11 @@ const Act = (props) => {
 
 
         return (
-
         <main className="container">
       <div className="nav-container">
 
             <div className="site">
+
                  <nav className="bottonss">
                     <Link className={"nav-linkk"} to={"/"}>Home</Link>
                     <Link className={"nav-linkk"} to={"/login/"}>Login</Link>

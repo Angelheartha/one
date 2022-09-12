@@ -15,6 +15,16 @@ class Login extends Component {
         this.setState({[event.target.name]: event.target.value});
     }
 
+
+   addNumbers(num1, num2){
+  console.log(num1, num2); //ここに1行追加
+  console.log(num1 + num2); //この行は先ほどのまま
+  return num1 + num2;
+}
+
+
+
+
     handleSubmitWThen(event){
         event.preventDefault();
         axiosInstance.post('/token/obtain/', {
@@ -28,6 +38,8 @@ class Login extends Component {
                 }
         ).catch (error => {
             throw error;
+            addNumbers(2);
+
         })
     }
 
@@ -44,6 +56,8 @@ class Login extends Component {
             return response;
         } catch (error) {
             throw error;
+            addNumbers(2);
+
         }
     }
 
