@@ -60,7 +60,7 @@ class Login extends Component {
                         Password:
                         <input className="label" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
                     </label>
-                    <input className="sub" type="submit" value="Submit"/>
+                    <input type="submit" value="Submit"/>
                 </form>
             </div>
         )

@@ -1,4 +1,4 @@
-
+from bottle import route, run, template, request, redirect
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.views import APIView
@@ -8,12 +8,16 @@ from django.db import transaction
 from .models import Account, AccountManager
 from rest_framework import authentication, permissions, generics, status, viewsets, filters
 from .serializers import CustomUserSerializer
+from rest_framework.decorators import api_view
+
+
 
 class ObtainTokenPairWithColorView(TokenObtainPairView):
+    permission_classes = (permissions.AllowAny,)
     serializer_class = MyTokenObtainPairSerializer
 
 
-class CustomUserCreate(generics.CreateAPIView):
+class CustomUserCreate(APIView):
     permission_classes = (permissions.AllowAny,)
     authentication_classes = ()
     serializer_class = CustomUserSerializer
