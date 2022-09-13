@@ -9,12 +9,12 @@ from .models import Account, AccountManager
 from rest_framework import authentication, permissions, generics, status, viewsets, filters
 from .serializers import CustomUserSerializer
 from rest_framework.decorators import api_view
-
+from django.views.decorators.csrf import csrf_exempt
 
 
 class ObtainTokenPairWithColorView(TokenObtainPairView):
     permission_classes = (permissions.AllowAny,)
-    serializer_class = MyTokenObtainPairSerializer
+    serializer_class = CustomUserSerializer
 
 
 class CustomUserCreate(APIView):
@@ -31,12 +31,14 @@ class CustomUserCreate(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+
 class AuthInfoGetView(generics.RetrieveAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     authentication_classes = ()
     queryset = Account.objects.all()
     serializer_class = CustomUserSerializer
 
+    @csrf_exempt
     def get(self, request, format=None):
         return Response(data={
             'id': request.user.id,

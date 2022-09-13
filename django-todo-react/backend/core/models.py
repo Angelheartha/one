@@ -89,4 +89,3 @@ class CustomUser(AbstractUser):
     fav_color = models.CharField(blank=True, max_length=120)
 
 
-

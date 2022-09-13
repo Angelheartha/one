@@ -4,7 +4,7 @@ import axiosInstance from "../axiosApi";
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = {username: "", password: ""};
+        this.state = {username: "", password: "", email:""};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +29,8 @@ class Login extends Component {
         event.preventDefault();
         axiosInstance.post('/token/obtain/', {
                 username: this.state.username,
-                password: this.state.password
+                password: this.state.password,
+                email:this.state.email,
             }).then(
                 result => {
                     axiosInstance.defaults.headers['Authorization'] = "JWT " + result.data.access;
@@ -48,7 +49,8 @@ class Login extends Component {
         try {
             const response = await axiosInstance.post('/token/obtain/', {
                 username: this.state.username,
-                password: this.state.password
+                password: this.state.password,
+                email:this.state.email,
             });
             axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
             localStorage.setItem('access_token', response.data.access);
@@ -73,6 +75,10 @@ class Login extends Component {
                     <label>
                         Password:
                         <input className="label" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
+                    </label>
+                    <label>
+                        email:
+                        <input className="label" name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
                     </label>
                     <input type="submit" value="Submit"/>
                 </form>
