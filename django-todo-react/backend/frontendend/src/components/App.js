@@ -33,10 +33,9 @@ const App = () => {
    todoList();
    refreshList();
 
-
    }
    }
-
+   list();
   },[Login])
 
 
