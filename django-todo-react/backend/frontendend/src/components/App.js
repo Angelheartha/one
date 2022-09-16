@@ -28,7 +28,7 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() =>{
-   const list = async() => {
+   const list = () => {
    if(localStorage.localJWT){
    todoList();
    refreshList();
