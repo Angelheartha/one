@@ -27,15 +27,23 @@ const App = () => {
 
   const location = useLocation();
 
+  useEffect(()=>{
+  refreshList();
+
+
+  },[])
+
+
+
 
   useEffect(() =>{
    const list = () => {
    if(localStorage.localJWT){
    todoList();
-   refreshList();
 
    }
    }
+   console.log('hey')
    list();
   },[Login])
 
