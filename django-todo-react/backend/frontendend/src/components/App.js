@@ -27,6 +27,7 @@ const App = () => {
 
   const location = useLocation();
 
+
   useEffect(() =>{
    const list = () => {
    if(localStorage.localJWT){
