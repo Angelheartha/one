@@ -28,8 +28,16 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() =>{
-  refreshList();
-  },[])
+   const list = async() => {
+   if(localStorage.localJWT){
+   todoList();
+   refreshList();
+
+
+   }
+   }
+
+  },[handleSubmit])
 
 
 
@@ -224,48 +232,12 @@ const Act = (props) => {
 
 
 
-    const handleLogout = async () => {
-        try {
-            const response = await axiosInstance.post('/blacklist/', {
-                "refresh_token": localStorage.getItem("refresh_token")
-            });
-            localStorage.removeItem('access_token');
-            localStorage.removeItem('refresh_token');
-            axiosInstance.defaults.headers['Authorization'] = null;
-            return response;
-        }
-        catch (e) {
-            console.log(e);
-        }
-    };
 
 
-        return (
-        <main className="container">
+  const todolist = () => {
+     return(
+     <main className="container">
       <div className="nav-container">
-
-            <div className="site">
-
-                 <nav className="bottonss">
-                    <Link className={"nav-linkk"} to={"/"}>Home</Link>
-                    <Link className={"nav-linkk"} to={"/login/"}>Login</Link>
-                    <Link className={"nav-linkk"} to={"/signup/"}>Signup</Link>
-                    <Link className={"nav-linkk"} to={"/hello/"}>Hello</Link>
-                    <button className={"nav-bot"} onClick={handleLogout}>Logout</button>
-                 </nav>
-                 <div className="golinks">
-                    <h1 className="message">You are always welcome!</h1>
-
-                     <Routes>
-                        <Route exact path={"/login/"} element={<Login />}/>
-                        <Route exact path={"/signup/"} element={<Signup />}/>
-                        <Route exact path={"/hello/"} element={<Hello />}/>
-                        <Route path={"/"} render={() => <div>Home again</div>} />
-                     </Routes>
-
-                 </div>
-            </div>
-
 
 <div className="button3">
         <button
@@ -321,6 +293,60 @@ const Act = (props) => {
         />
       )}
     </main>
+
+
+     )
+  }
+
+
+
+
+
+
+
+
+
+
+    const handleLogout = async () => {
+        try {
+            const response = await axiosInstance.post('/blacklist/', {
+                "refresh_token": localStorage.getItem("refresh_token")
+            });
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('refresh_token');
+            axiosInstance.defaults.headers['Authorization'] = null;
+            return response;
+        }
+        catch (e) {
+            console.log(e);
+        }
+    };
+
+
+        return (
+
+
+            <div className="site">
+
+                 <nav className="bottonss">
+                    <Link className={"nav-linkk"} to={"/"}>Home</Link>
+                    <Link className={"nav-linkk"} to={"/login/"}>Login</Link>
+                    <Link className={"nav-linkk"} to={"/signup/"}>Signup</Link>
+                    <Link className={"nav-linkk"} to={"/hello/"}>Hello</Link>
+                    <button className={"nav-bot"} onClick={handleLogout}>Logout</button>
+                 </nav>
+                 <div className="golinks">
+                    <h1 className="message">You are always welcome!</h1>
+
+                     <Routes>
+                        <Route exact path={"/login/"} element={<Login />}/>
+                        <Route exact path={"/signup/"} element={<Signup />}/>
+                        <Route exact path={"/hello/"} element={<Hello />}/>
+                        <Route path={"/"} render={() => <div>Home again</div>} />
+                     </Routes>
+
+                 </div>
+            </div>
 
         );
 }
