@@ -14,25 +14,25 @@ const Signup = () => {
 
 
 
-   const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            const response = await axiosInstance.post('/user/create/',
+   const handleSubmit = (event) => {
+         axiosInstance.post('/user/create/',
              {
-                username: username,
-                email: email,
-                password: password
+                            username: username,
+                            email: email,
+                            password: password
 
             },
-            {withCredentials:true});
-            return response;
-        } catch (error) {
-            console.log(error.stack);
-            this.setState({
-                errors:error.response.data
-            });
-        }
-    }
+            {withCredentials:true}
+            ).then(response=>{
+               if(response.data.status === 'created'){
+               props.handleSuccessfulAuthentication(response.data)
+               }
+            }).catch (error =>{
+              console.log("registration error")
+            })
+            event.preventDefault()
+            }
+
 
 
 
