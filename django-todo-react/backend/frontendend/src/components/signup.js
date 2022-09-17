@@ -1,32 +1,27 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import axiosInstance from "../axiosApi";
 
-class Signup extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            username: "",
-            password: "",
-            email:"",
-            errors:{}
-        };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+const Signup = () => {
 
-    handleChange(event) {
-        this.setState({[event.target.name]: event.target.value});
-    }
 
-    async handleSubmit(event) {
+   const[email, setEmail] = useState("")
+   const[password, setPassword] = useState("")
+   const[username, setUsername] = useState("")
+
+
+
+
+
+
+   const handleSubmit = async (event) => {
         event.preventDefault();
         try {
             const response = await axiosInstance.post('/user/create/', {
-                username: this.state.username,
-                email: this.state.email,
-                password: this.state.password
-            });
+                username: username,
+                email: email,
+                password: password
+            },{withCredentials:true});
             return response;
         } catch (error) {
             console.log(error.stack);
@@ -36,31 +31,40 @@ class Signup extends Component{
         }
     }
 
-    render() {
+
+
         return (
             <div>
-                Signup
-                <form className="form" onSubmit={this.handleSubmit}>
-                    <label>
-                        Username:
-                        <input className="label" name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
-                        { this.state.errors.username ? this.state.errors.username : null}
-                    </label>
-                    <label>
-                        Email:
-                        <input className="label" name="email" type="email"  value={this.state.email} onChange={this.handleChange}/>
-                        { this.state.errors.email ? this.state.errors.email : null}
-                    </label>
-                    <label>
-                        Password:
-                        <input className="label" name="password" type="password"  value={this.state.password} onChange={this.handleChange}/>
-                        { this.state.errors.password ? this.state.errors.password : null}
-                    </label>
-                    <input type="submit" value="Submit"/>
+                <p>Login</p>
+
+                <form className="form" onSubmit={handleSubmit}>
+                    <input
+                       type="email"
+                       name="email"
+                       placeholder="メールアドレス"
+                       value={email}
+                       onChange={event => setEmail(event.target.value)}
+                    />
+                    <input
+                       type="password"
+                       name="password"
+                       placeholder="パスワード"
+                       value={password}
+                       onChange={event => setPassword(event.target.value)}
+                    />
+                    <input
+                       type="username"
+                       name="username"
+                       placeholder="ユーザー名"
+                       value={username}
+                       onChange={event => setUsername(event.target.value)}
+                    />
+
+                   <button type="submit">登録</button>
                 </form>
             </div>
         )
-    }
+
 }
 
 export default Signup;
