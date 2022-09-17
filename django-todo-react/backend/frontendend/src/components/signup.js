@@ -17,11 +17,14 @@ const Signup = () => {
    const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axiosInstance.post('/user/create/', {
+            const response = await axiosInstance.post('/user/create/',
+             {
                 username: username,
                 email: email,
                 password: password
-            },{withCredentials:true});
+
+            },
+            {withCredentials:true});
             return response;
         } catch (error) {
             console.log(error.stack);
@@ -35,7 +38,7 @@ const Signup = () => {
 
         return (
             <div>
-                <p>Login</p>
+                <p>Signup</p>
 
                 <form className="form" onSubmit={handleSubmit}>
                     <input

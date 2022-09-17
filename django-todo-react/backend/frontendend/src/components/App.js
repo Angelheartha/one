@@ -3,6 +3,7 @@ import { BrowserRouter, Router, Route, Routes, Link, useLocation} from "react-ro
 import Login from "./login";
 import Signup from "./signup";
 import Hello from "./hello";
+import Home from "./home";
 import { useState,useEffect} from "react";
 import axiosInstance from "../axiosApi";
 import Modal from "./Modal";
@@ -24,6 +25,13 @@ const App = () => {
   const alert = useAlert()
   const [input, setInput]=useState("");
   const [textarea, setTextarea]=useState("");
+  const [loggedInStatus, setLoggedInStatus]=useState("未ログイン");
+  const [user, setUser]=useState({});
+
+
+
+
+
 
   const location = useLocation();
 
@@ -350,7 +358,12 @@ const Act = (props) => {
                         <Route exact path={"/login/"} element={<Login />}/>
                         <Route exact path={"/signup/"} element={<Signup />}/>
                         <Route exact path={"/hello/"} element={<Hello />}/>
-                        <Route path={"/"} render={() => <div>Home again</div>} />
+                        <Route
+                          exact path={"/"}
+                          element={props => (
+                          <Home { ...props} loggedInStatus={loggedInStatus} />
+                          )}
+                          />
                      </Routes>
 
                  </div>

@@ -66,7 +66,6 @@ class Login extends Component {
     render() {
         return (
             <div>
-                Login
                 <form className="form" onSubmit={this.handleSubmit}>
                     <label>
                         Username:
