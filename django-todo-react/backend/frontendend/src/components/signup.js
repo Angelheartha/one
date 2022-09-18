@@ -24,9 +24,10 @@ const Signup = () => {
             },
             {withCredentials:true}
             ).then(response=>{
-               if(response.data.status === 'created'){
+               if(response.data=== 'username', 'email'){
                props.handleSuccessfulAuthentication(response.data)
                }
+
             }).catch (error =>{
               console.log("registration error")
             })
