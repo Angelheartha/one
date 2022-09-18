@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axiosInstance from "../axiosApi";
 
 
-const Signup = () => {
+const Signup = (props) => {
 
 
    const[email, setEmail] = useState("")
@@ -24,10 +24,11 @@ const Signup = () => {
             },
             {withCredentials:true}
             ).then(response=>{
-               if(response.data=== 'username', 'email'){
+               if(response.data.status === 'undefined'){
                props.handleSuccessfulAuthentication(response.data)
+               console.log(props)
                }
-
+               console.log(props)
             }).catch (error =>{
               console.log("registration error")
             })
