@@ -2,11 +2,11 @@ import React from 'react';
 import Signup from "./signup";
 
 
-export default function Home(props){
+const Home = (props) =>{
 
 const handleSuccessfulAuthentication = (data) =>{
     props.history.push("/Dashboard")
-    console.log(props)
+
 }
 
 
@@ -18,3 +18,5 @@ const handleSuccessfulAuthentication = (data) =>{
   </div>
   )
 }
+
+export default Home;

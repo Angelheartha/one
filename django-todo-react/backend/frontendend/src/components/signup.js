@@ -24,11 +24,13 @@ const Signup = (props) => {
             },
             {withCredentials:true}
             ).then(response=>{
-               if(response.data.status === 'undefined'){
+               if(response.statusText === 'Created'){
+               console.log(response.data)
+               console.log(props)
                props.handleSuccessfulAuthentication(response.data)
-               console.log(props)
+
                }
-               console.log(props)
+
             }).catch (error =>{
               console.log("registration error")
             })
