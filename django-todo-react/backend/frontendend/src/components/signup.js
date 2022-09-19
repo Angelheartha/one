@@ -10,6 +10,10 @@ const Signup = (props) => {
    const[username, setUsername] = useState("")
 
 
+   const handleSuccessfulAuthentication = (data) =>{
+        props.history.push("/Dashboard")
+
+   }
 
 
 

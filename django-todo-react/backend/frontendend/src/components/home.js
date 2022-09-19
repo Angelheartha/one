@@ -5,9 +5,10 @@ import Signup from "./signup";
 const Home = (props) =>{
 
 const handleSuccessfulAuthentication = (data) =>{
-    props.history.push("/Dashboard")
+        props.history.push("/Dashboard")
 
-}
+   }
+
 
 
   return(
