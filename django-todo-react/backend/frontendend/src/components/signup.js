@@ -16,13 +16,14 @@ const Signup = (props) => {
 const handleLogin = (data) =>{
      props.setLoggedInStatus("ログインなう")
      props.setUser(data)
+
   }
 
 
 
 const handleSuccessfulAuthentication = (data) =>{
-        handleLogin(data)
         navigate("/Dashboard")
+        handleLogin(data)
    }
 
 

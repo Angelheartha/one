@@ -29,13 +29,6 @@ const App = () => {
   const [user, setUser]=useState({});
 
 
-  const handleLogin = (data) =>{
-     setLoggedInStatus("ログインなう")
-     setUser(data)
-  }
-
-
-
 
 
   const location = useLocation();
@@ -49,7 +42,10 @@ const App = () => {
 
 
 
-
+  const handleLogin = (data) =>{
+     setLoggedInStatus("ログインなう")
+     setUser(data)
+  }
 
 
 

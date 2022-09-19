@@ -13,8 +13,8 @@ const handleLogin = (data) =>{
 
 
 const handleSuccessfulAuthentication = (data) =>{
-        handleLogin(data)
         navigate("/Dashboard");
+        handleLogin(data)
 
    }
 
