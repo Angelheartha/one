@@ -4,8 +4,17 @@ import Signup from "./signup";
 
 const Home = (props) =>{
 
+
+const handleLogin = (data) =>{
+     props.setLoggedInStatus("ログインなう")
+     props.setUser(data)
+  }
+
+
+
 const handleSuccessfulAuthentication = (data) =>{
-        props.history.push("/Dashboard")
+        handleLogin(data)
+        navigate("/Dashboard");
 
    }
 

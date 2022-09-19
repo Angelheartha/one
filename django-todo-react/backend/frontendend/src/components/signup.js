@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosApi";
 
 
@@ -8,13 +9,21 @@ const Signup = (props) => {
    const[email, setEmail] = useState("")
    const[password, setPassword] = useState("")
    const[username, setUsername] = useState("")
+   const navigate = useNavigate()
 
 
-   const handleSuccessfulAuthentication = (data) =>{
-        props.history.push("/Dashboard")
 
+const handleLogin = (data) =>{
+     props.setLoggedInStatus("ログインなう")
+     props.setUser(data)
+  }
+
+
+
+const handleSuccessfulAuthentication = (data) =>{
+        handleLogin(data)
+        navigate("/Dashboard")
    }
-
 
 
 
@@ -29,9 +38,7 @@ const Signup = (props) => {
             {withCredentials:true}
             ).then(response=>{
                if(response.statusText === 'Created'){
-               console.log(response.data)
-               console.log(props)
-               props.handleSuccessfulAuthentication(response.data)
+               handleSuccessfulAuthentication(response.data)
 
                }
 
