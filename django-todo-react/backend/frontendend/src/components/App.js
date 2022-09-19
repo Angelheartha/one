@@ -44,7 +44,7 @@ const App = () => {
 
   const handleLogin = (data) =>{
      setLoggedInStatus("ログインなう")
-     setUser(data)
+     props.setUser(data.user)
   }
 
 
@@ -347,23 +347,18 @@ const Act = (props) => {
 
                      <Routes>
                         <Route exact path={"/signup/"} element={<Signup />}/>
-                        <Route
-                          exact path={"/login/"}
-                          element={
-                          <Home handleLogin={handleLogin} loggedInStatus={loggedInStatus} />
-                          }
-                          />
+
                         <Route
                           exact path={"/"}
                           element={
-                          <Home loggedInStatus={loggedInStatus} />
+                          <Home handleLogin={handleLogin} loggedInStatus={loggedInStatus} />
                           }
                           />
 
                         <Route
                           exact path={"/Dashboard/"}
                           element={
-                          <Dashboard loggedInStatus={loggedInStatus} />
+                          <Dashboard  loggedInStatus={loggedInStatus} />
                           }
                           />
 

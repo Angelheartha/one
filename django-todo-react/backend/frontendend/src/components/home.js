@@ -6,15 +6,15 @@ const Home = (props) =>{
 
 
 const handleLogin = (data) =>{
-     setLoggedInStatus("ログインなう")
-     setUser(data)
+     props.setLoggedInStatus("ログインなう")
+     props.setUser(data)
   }
 
 
 
 const handleSuccessfulAuthentication = (data) =>{
         navigate("/Dashboard");
-        props.handleLogin(data)
+        props.handleLogin(data);
 
    }
 
