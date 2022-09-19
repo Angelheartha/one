@@ -14,6 +14,7 @@ const handleLogin = (data) =>{
 
 const handleSuccessfulAuthentication = (data) =>{
         navigate("/Dashboard");
+        console.log(data)
         props.handleLogin(data);
 
    }

@@ -44,7 +44,7 @@ const App = () => {
 
   const handleLogin = (data) =>{
      setLoggedInStatus("ログインなう")
-     props.setUser(data.user)
+     setUser(data.user)
   }
 
 
